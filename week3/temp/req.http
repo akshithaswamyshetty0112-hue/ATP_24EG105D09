@@ -1,0 +1,93 @@
+###read all users(request to protected route)
+GET http://localhost:4000/user-api/users
+
+### read a specific user
+GET http://localhost:4000/user-api/user
+
+
+### 
+### create new user
+POST http://localhost:4000/user-api/users
+Content-Type: application/json  
+
+{
+   "username":"hijk",
+   "password":"hijk",
+   "email":"hijk@gmail.com",
+   "age":16
+}
+
+
+###
+###update a user
+PUT http://localhost:4000/user-api/users
+Content-Type: application/json
+
+{
+   "username":"bhanu",
+   "password":"bhanukumar",
+   "email":"bhanukumar@gmail.com",
+   "age":26
+}
+
+
+### user login
+POST http://localhost:4000/user-api/auth
+Content-Type: application/json
+
+{
+   "email":"hijk@gmail.com",
+   "password":"hijk"
+
+}
+
+
+###
+### delete a user
+DELETE http://localhost:4000/user-api/users/1
+###can pass name,age,id anything after path,here/5 is url parameter
+
+### add product to user cart
+PUT http://localhost:4000/user-api/cart/product-id/
+
+### create req for product api
+POST http://localhost:4000/product-api/products
+Content-Type: application/json
+
+{
+   "productId":"567",
+   "productName":"tv",
+    "price":20000,
+    "brand":"lg"
+}
+### create a product
+POST http://localhost:4000/product-api/products
+Content-Type: 
+
+{
+   "productId":"k567",
+   "productName":"tv",
+    "price":30000,
+    "brand":"lg"
+}
+
+### read all products
+GET  http://localhost:4000/product-api/products
+
+###read product by id
+GET  http://localhost:4000/product-api/products/1
+
+###update  a product
+PUT  http://localhost:4000/product-api/products
+Content-Type: 
+
+{
+   "productId":567,
+   "productName":"tv",
+    "price":80000,
+    "brand":"lg"
+
+}
+
+###delete product by id
+DELETE  http://localhost:4000/product-api/products

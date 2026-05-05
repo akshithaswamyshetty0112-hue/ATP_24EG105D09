@@ -1,6 +1,8 @@
+//initialization
 let a=3
 let b=6
 let c=9
+//checking condition and giving o/p accordingly
 if(a>b&&a>c){
     console.log("the biggest number is",a)
 }

@@ -1,0 +1,26 @@
+### read all products
+GET http://localhost:3000/product-api/products
+###
+### create a new product
+POST http://localhost:3000/product-api/products
+Content-Type: application/json
+
+{
+    "productId":1,
+    "name":"laptop",
+    "brand":"hp",
+    "price":45000
+}
+### to update initial product
+PUT http://localhost:3000/product-api/products
+Content-Type: application/json
+
+{
+    "productId":1,
+    "name":"laptop",
+    "brand":"dell",
+    "price":55000
+}
+### delete a product
+DELETE http://localhost:3000/product-api/products/1
+

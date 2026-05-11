@@ -1,0 +1,31 @@
+###read all users
+GET http://localhost:3000/user-api/users
+### read a user by id
+GET http://localhost:3000/user-api/users/2
+
+### create new user
+POST http://localhost:3000/user-api/users
+Content-Type: application/json  
+
+{
+   "id":1,
+   "name":"akshitha",
+   "age":20
+}
+
+
+###
+###update a user
+PUT http://localhost:3000/user-api/users
+Content-Type: application/json
+
+{
+   "id":1,
+   "name":"mamatha",
+   "age":22
+}
+
+###
+### delete a user
+DELETE http://localhost:3000/user-api/users/1
+###can pass name,age,id anything after path,here/5 is url parameter

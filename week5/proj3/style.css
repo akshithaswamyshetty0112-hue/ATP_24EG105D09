@@ -1,0 +1,75 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Background */
+body{
+    margin-top: 20px;
+    margin-left: 40px;
+    margin-bottom: 20px;
+    margin-right: 40px;
+    background:white;
+    box-shadow: 0 10px 25px grey;
+    
+}
+
+/* Container (card style) */
+.container{
+    width: 80%;
+    margin: 60px auto;
+    background: #6fb1b6;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px grey;
+}
+
+/* Table styling */
+table{
+    width: 100%;
+    border-collapse: collapse;
+    background: #f4f4f4;
+    border-radius: 10px;
+    overflow: hidden;
+    border-radius: 20px;
+    border-color: skyblue;
+}
+
+/* USERS heading row */
+thead tr:first-child th{
+    background: #5aa5aa;
+    color: white;
+    font-size: 22px;
+    padding: 15px;
+}
+
+/* Column headings */
+thead tr:nth-child(2){
+    background: #bcd6d8;
+}
+
+/* Header cells */
+th{
+    padding: 12px;
+}
+
+/* Table data */
+td{
+    padding: 12px;
+    text-align: center;
+}
+
+/* Alternate row colors */
+tbody tr:nth-child(even){
+    background: #e3eeee;
+}
+
+/* Image styling */
+img{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+

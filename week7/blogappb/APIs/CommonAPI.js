@@ -1,14 +1,13 @@
 import exp from "express";
 import { UserModel } from "../models/UserModel.js";
 import { hash, compare } from "bcryptjs";
-import { config } from "dotenv";
 import jwt from "jsonwebtoken";
 import { verifyToken } from "../middlewares/VerifyToken.js";
+import { getJwtSecret } from "../config/env.js";
 const { sign } = jwt;
 export const commonApp = exp.Router();
 import { upload } from "../config/multer.js";
 import cloudinary from "../config/cloudinary.js";
-config();
 // import cloudinary from "../config/cloudinaryUpload.js";
 //Route for register
 commonApp.post("/users", upload.single("profileImageUrl"), async (req, res, next) => {
@@ -108,7 +107,7 @@ commonApp.post("/login", async (req, res, next) => {
       lastName: user.lastName,
       profileImageUrl: user.profileImageUrl,
     },
-    process.env.SECRET_KEY,
+    getJwtSecret(),
     {
       expiresIn: "1h",
     },
@@ -149,7 +148,7 @@ commonApp.get(
         return res.status(200).json({ isAuthenticated: false });
       }
 
-      const decodedToken = jwt.verify(token, process.env.SECRET_KEY);
+      const decodedToken = jwt.verify(token, getJwtSecret());
       const dbUser = await UserModel.findById(decodedToken.id).select(
         "role isUserActive",
       );

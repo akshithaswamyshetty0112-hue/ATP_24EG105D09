@@ -1,10 +1,8 @@
 import jwt from "jsonwebtoken";
-import { config } from "dotenv";
 import { UserModel } from "../models/UserModel.js";
+import { getJwtSecret } from "../config/env.js";
 
 const { verify } = jwt;
-
-config();
 
 export const verifyToken = (...allowedRoles) => {
   return async (req, res, next) => {
@@ -15,7 +13,7 @@ export const verifyToken = (...allowedRoles) => {
         return res.status(401).json({ message: "Please login first" });
       }
 
-      const decodedToken = verify(token, process.env.SECRET_KEY);
+      const decodedToken = verify(token, getJwtSecret());
 
       if (!allowedRoles.includes(decodedToken.role)) {
         return res.status(403).json({ message: "You are not authorized" });

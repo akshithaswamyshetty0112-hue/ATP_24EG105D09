@@ -6,7 +6,7 @@ import "dotenv/config";
 
 const app = exp();
 const PORT = process.env.PORT || 4000;
-const MONGODB_URI = process.env.MONGODB_URI;
+const MONGODB_URI = process.env.MONGODB_URI || process.env.MONGODB_URL;
 const allowedOrigins = (process.env.CORS_ORIGIN || "http://localhost:5173")
   .split(",")
   .map((origin) => origin.trim())
@@ -27,7 +27,7 @@ app.use("/emp-api", empRoute);
 const connectDB = async () => {
   try {
     if (!MONGODB_URI) {
-      throw new Error("MONGODB_URI environment variable is not set");
+      throw new Error("MONGODB_URI or MONGODB_URL environment variable is not set");
     }
     await connect(MONGODB_URI);
     console.log("DB connected");

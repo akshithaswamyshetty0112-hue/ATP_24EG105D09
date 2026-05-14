@@ -16,6 +16,7 @@ commonApp.post("/users", upload.single("profileImageUrl"), async (req, res, next
     let allowedRoles = ["USER", "AUTHOR", "ADMIN"];
     //get user from req
     const newUser = req.body;
+    newUser.role = newUser.role?.toUpperCase();
     console.log(newUser);
     console.log(req.file);
 

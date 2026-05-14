@@ -12,9 +12,15 @@ config();
 //create express app
 const app = exp();
 //enable cors
+const frontendOrigins = (process.env.FRONTEND_URL || "")
+  .split(",")
+  .map((origin) => origin.trim())
+  .filter(Boolean);
+
 const allowedOrigins = [
   "http://localhost:5173",
-  process.env.FRONTEND_URL
+  "https://atp-24-eg-105-d09-w42h.vercel.app",
+  ...frontendOrigins,
 ].filter(Boolean);
 
 const isDev = process.env.NODE_ENV !== "production";

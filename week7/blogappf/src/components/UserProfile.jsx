@@ -3,6 +3,7 @@ import { useNavigate } from "react-router";
 
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { API_URL } from "../config/api";
 
 import {
   articleGrid,
@@ -31,7 +32,7 @@ function UserProfile() {
 
       try {
         const res = await axios.get(
-          "http://localhost:5000/user-api/articles",
+          `${API_URL}/user-api/articles`,
           {
             withCredentials: true,
           }

@@ -25,6 +25,19 @@ const allowedOrigins = [
 
 const isDev = process.env.NODE_ENV !== "production";
 
+const isAllowedVercelPreview = (origin) => {
+  try {
+    const { protocol, hostname } = new URL(origin);
+    return (
+      protocol === "https:" &&
+      hostname.endsWith(".vercel.app") &&
+      hostname.startsWith("atp-24-eg-105-d09-w42h")
+    );
+  } catch {
+    return false;
+  }
+};
+
 app.use(cors({
   origin: (origin, callback) => {
     // Allow requests with no origin (Postman, curl, server-to-server)
@@ -34,6 +47,7 @@ app.use(cors({
       return callback(null, true);
     }
     if (allowedOrigins.includes(origin)) return callback(null, true);
+    if (isAllowedVercelPreview(origin)) return callback(null, true);
     callback(new Error(`CORS: origin ${origin} not allowed`));
   },
   credentials: true

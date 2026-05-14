@@ -7,15 +7,32 @@ import "dotenv/config";
 const app = exp();
 const PORT = process.env.PORT || 4000;
 const MONGODB_URI = process.env.MONGODB_URI || process.env.MONGODB_URL;
-const allowedOrigins = (process.env.CORS_ORIGIN || "http://localhost:5173")
+const defaultCorsOrigins = [
+  "http://localhost:5173",
+  "https://atp-24-eg-105-d09.vercel.app",
+];
+const allowedOrigins = (process.env.CORS_ORIGIN || defaultCorsOrigins.join(","))
   .split(",")
   .map((origin) => origin.trim())
   .filter(Boolean);
+const allowedOriginPatterns = [
+  /^https:\/\/atp-24-eg-105-d09(-[a-z0-9]+)?\.vercel\.app$/,
+];
 
 //add cors middleware
 app.use(
   cors({
-    origin: allowedOrigins,
+    origin: (origin, callback) => {
+      if (
+        !origin ||
+        allowedOrigins.includes(origin) ||
+        allowedOriginPatterns.some((pattern) => pattern.test(origin))
+      ) {
+        return callback(null, true);
+      }
+
+      return callback(new Error("Not allowed by CORS"));
+    },
   }),
 );
 //body parser middleware

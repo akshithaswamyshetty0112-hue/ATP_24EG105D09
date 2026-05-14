@@ -7,7 +7,7 @@ Content-Type: application/json
 
 {
     "productId":1,
-    "name":"laptop",
+    "productName":"laptop",
     "brand":"hp",
     "price":45000
 }
@@ -17,9 +17,9 @@ Content-Type: application/json
 
 {
     "productId":1,
-    "name":"laptop",
+    "productName":"laptop",
     "brand":"dell",
-    "price":55000
+    "price":50000
 }
 ### delete a product
 DELETE http://localhost:3000/product-api/products/1

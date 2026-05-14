@@ -1,5 +1,8 @@
 //create http server
 import exp from "express";
+import mongoose from "mongoose";
+import 'dotenv/config';
+
 const app=exp();
 
 import { userApp } from "./APIs/UserAPI.js";
@@ -24,6 +27,13 @@ function middleware2(req,res,next){
 app.use('/user-api',userApp);
 app.use('/product-api',productApp);
 //set a port number
-const port=3000;
-//assign port number to http server
-app.listen(port,()=>{console.log(`server listening to port ${port}...`)})
+const port=process.env.PORT || 3000;
+
+mongoose.connect(process.env.DB_URL)
+.then(()=>{
+    console.log("database connected successfully")
+    app.listen(port,()=>{console.log(`server listening to port ${port}...`)})
+})
+.catch((err)=>{
+    console.log("database connection error", err.message)
+})

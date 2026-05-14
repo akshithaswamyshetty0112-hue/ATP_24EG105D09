@@ -65,7 +65,7 @@ function ArticleById() {
     };
 
     getArticle();
-  }, [id]);
+  }, [article, id]);
 
   // format date
   const formatDate = (date) => {

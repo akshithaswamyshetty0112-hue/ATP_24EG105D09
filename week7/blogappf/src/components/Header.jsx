@@ -20,26 +20,6 @@ function Header() {
     (state) => state.currentUser
   );
 
-  // profile route
-  const getProfilePath = () => {
-
-    if (!user) return "/";
-
-    switch (
-      user.role?.toLowerCase()
-    ) {
-
-      case "author":
-        return "/author-profile";
-
-      case "admin":
-        return "/admin-profile";
-
-      default:
-        return "/user-profile";
-    }
-  };
-
   // write article route
   const getWritePath = () => {
 

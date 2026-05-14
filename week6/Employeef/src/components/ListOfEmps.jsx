@@ -4,6 +4,7 @@ import Employee from "./Employee";
 import { counterContextObj } from "../contexts/ContextProvider";
 import { useContext } from "react";
 import axios from "axios";
+import { employeeApiUrl } from "../api";
 function ListOfEmps() {
 
     const {counter,changeCounter}=useContext(counterContextObj)
@@ -22,7 +23,7 @@ function ListOfEmps() {
   }
 
   const deleteEmpById=async(id)=>{
-    let res=await axios.delete(`http://localhost:4000/emp-api/employees/${id}`)
+    let res=await axios.delete(employeeApiUrl(`/${id}`))
     if(res.status===200){
       //get latest employess data
       getEmps();
@@ -31,7 +32,7 @@ function ListOfEmps() {
 
   //get all employees
   async function getEmps() {
-      let res = await fetch("http://localhost:4000/emp-api/employees");
+      let res = await fetch(employeeApiUrl());
       if (res.status === 200) {
         let resObj = await res.json();
         setEmps(resObj.payload);

@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import { useState,useContext } from "react";
 import { useNavigate } from "react-router";
 import { counterContextObj } from "../contexts/ContextProvider";
+import { employeeApiUrl } from "../api";
 
 function CreateEmp() {
    const {counter,changeCounter,counter2,changeCounter2}=useContext(counterContextObj);
@@ -20,7 +21,7 @@ function CreateEmp() {
     try {
       setLoading(true);
       //make HTTP POST req
-      let res = await fetch("http://localhost:4000/emp-api/employees", {
+      let res = await fetch(employeeApiUrl(), {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(newEmpObj),

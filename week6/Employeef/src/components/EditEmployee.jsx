@@ -4,6 +4,7 @@ import { useLocation,useNavigate } from 'react-router';
 import Employee from './Employee';
 import { useEffect } from 'react';
 import axios from 'axios'
+import { employeeApiUrl } from '../api';
 
 
 function EditEmployee() {
@@ -32,7 +33,7 @@ useEffect(()=>{
 
 const saveModifiedEmp=async(modifiedEmp)=>{
   //make HTTP PUT request
-  const res=await axios.put(`http://localhost:4000/emp-api/employees/${state._id}`,modifiedEmp)
+  const res=await axios.put(employeeApiUrl(`/${state._id}`),modifiedEmp)
   if(res.status===200){
     //naviagte to ListOfEmployees
     navigate('/list')

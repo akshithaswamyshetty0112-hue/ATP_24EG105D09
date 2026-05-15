@@ -5,7 +5,7 @@ This project is a full-stack employee management application built with MongoDB,
 ## Project Structure
 
 
-week6/
+week6
 ├── Employeeb/          # Backend Express + MongoDB API
 │   ├── APIs/
 │   │   └── EmployeeAPI.js

@@ -1,31 +1,62 @@
-This project is a simple React application built using Vite. It displays a collection of product cards using data stored in a local product array.
+# React Product App
 
-Project Files
-index.html – Main HTML file for the Vite application.
-main.jsx – Entry point that renders the React app.
-App.jsx – Contains the product data and renders multiple Product components using the map() function.
-Product.jsx – Displays individual product details such as title, price, and description.
-App.css and index.css – Files used for styling the application.
-vite.config.js – Configuration file for Vite.
-t – Placeholder file.
-Running the Project
+A simple React application built with Vite. The app displays a responsive grid of product cards using sample product data and a reusable `Product` component.
 
-Install the required dependencies first:
+## Features
+
+- React component-based UI
+- Product card listing
+- Responsive grid layout
+- Vite development server
+- ESLint configuration
+
+## Tech Stack
+
+- React
+- Vite
+- Tailwind CSS
+- ESLint
+
+## Project Structure
+
+
+REACT-APP-1/
+├── public/
+├── src/
+│   ├── assets/
+│   ├── components/
+│   │   └── Product.jsx
+│   ├── App.jsx
+│   ├── App.css
+│   ├── index.css
+│   └── main.jsx
+├── package.json
+├── vite.config.js
+└── README.md
+
+## Getting Started
+
+Install dependencies:
+
 
 npm install
 
-Start the development server using:
+
+Start the development server:
 
 npm run dev
 
-After running the command, open the local Vite URL displayed in the terminal to view the application in the browser.
 
-Important Note
+Build the project for production:
 
-In App.jsx, the Product component is imported from the ./components/Product.jsx path.
-However, if Product.jsx is currently placed in the project root folder, you should either:
+npm run build
 
-move Product.jsx into a components folder, or
-update the import path in App.jsx
+## Main Files
 
-Otherwise, the project may show module import errors while running.
+- `src/main.jsx` renders the React app.
+- `src/App.jsx` stores sample product data and maps it into product cards.
+- `src/components/Product.jsx` displays each product's title, price, and description.
+
+## Notes
+
+This project uses local sample data inside `App.jsx`. You can replace it later with data from an API or external JSON file.

@@ -1,0 +1,41 @@
+# Table Project
+
+This project contains a simple HTML page that displays a subject-wise grade table for two students: John Doe and Miriam Luther.
+
+## Files
+
+- table.html - Main HTML file that creates the table structure.
+- style.css - CSS file that styles the page and table.
+- readme - Project documentation file.
+
+## Description
+
+The webpage shows grades for the following subjects:
+
+- Biology
+- Chemistry
+- Physics
+
+Each subject includes two components:
+
+- Practical
+- Theory
+
+The table uses row spanning to group Practical and Theory marks under each subject.
+
+## How to Run
+
+1. Open the project folder.
+2. Double-click table.html.
+3. The page will open in your web browser.
+
+No server or extra installation is required.
+
+## Technologies Used
+
+- HTML
+- CSS
+
+## Styling Details
+
+The CSS file centers the table on the page, collapses table borders, and adds padding, borders, and centered text for better readability.

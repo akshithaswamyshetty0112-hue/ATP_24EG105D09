@@ -4,7 +4,7 @@ import { ArticleModel } from "../models/ArticleModel.js";
 export const userApp = exp.Router();
 
 //Read articles of all authors
-userApp.get("/articles", verifyToken("USER"), async (req, res) => {
+userApp.get("/articles", async (req, res) => {
   //read articles
   const articlesList = await ArticleModel.find({ isArticleActive: true });
   //send res
@@ -12,7 +12,7 @@ userApp.get("/articles", verifyToken("USER"), async (req, res) => {
 });
 
 //Read single article by id
-userApp.get("/article/:id", verifyToken("USER"), async (req, res, next) => {
+userApp.get("/article/:id", async (req, res, next) => {
   try {
     const article = await ArticleModel.findOne({ _id: req.params.id, isArticleActive: true });
     if (!article) {
